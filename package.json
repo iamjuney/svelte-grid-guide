@@ -3,6 +3,11 @@
 	"description": "A customizable grid overlay system for Svelte applications.",
 	"license": "MIT",
 	"author": "Aljon Lerios <aljonclerios@gmail.com>",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/iamjuney/svelte-grid-guide"
+	},
+	"homepage": "https://svelte-grid-guide.vercel.app/",
 	"keywords": [
 		"svelte",
 		"grid",
@@ -11,7 +16,7 @@
 		"overlay",
 		"guide"
 	],
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
