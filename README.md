@@ -81,7 +81,7 @@ Position the controls with: `top-left`, `top-right`, `bottom-left`, `bottom-righ
 </script>
 
 <GridOverlay />
-<button on:click={() => gridOverlay.toggle()}>Toggle Grid</button>
+<button onclick={() => gridOverlay.toggle()}>Toggle Grid</button>
 ```
 
 ## License
