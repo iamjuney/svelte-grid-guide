@@ -1,3 +1,8 @@
+<video width="100%" autoplay loop muted playsinline>
+  <source src="static/recording.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
 # svelte-grid-guide
 
 A customizable grid overlay system for Svelte applications to help with layout design and alignment.
