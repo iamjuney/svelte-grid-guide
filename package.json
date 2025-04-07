@@ -1,5 +1,5 @@
 {
-	"name": "svelte-grid-guide",
+	"name": "@iamjuney1412/svelte-grid-guide",
 	"description": "A customizable grid overlay system for Svelte applications.",
 	"license": "MIT",
 	"author": "Aljon Lerios <aljonclerios@gmail.com>",
