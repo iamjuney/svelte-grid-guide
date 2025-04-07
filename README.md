@@ -1,7 +1,4 @@
-<video width="100%" autoplay loop muted playsinline>
-  <source src="static/recording.webm" type="video/webm">
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/d0e41510-399f-4937-a94d-151481f66c3c
 
 # svelte-grid-guide
 
