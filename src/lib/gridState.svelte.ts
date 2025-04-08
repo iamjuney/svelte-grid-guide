@@ -32,17 +32,16 @@ export const mobileDefaultOptions: GridOverlayOptions = {
 let _gridOptions = $state<GridOverlayOptions>(structuredClone(defaultOptions));
 let _gridVisible = $state<boolean>(false);
 
-// Expose state via getter functions
-export function getGridOptions(): GridOverlayOptions {
-	return _gridOptions;
-}
-
-export function getGridVisible(): boolean {
-	return _gridVisible;
-}
-
 // Helper functions for managing the grid
 export const gridOverlay = {
+	/**
+	 * Get the current grid visibility state
+	 * @returns The current visibility state
+	 */
+	getGridVisible: () => {
+		return _gridVisible;
+	},
+
 	/**
 	 * Show the grid overlay
 	 */
@@ -70,6 +69,14 @@ export const gridOverlay = {
 	 */
 	setOptions: (options: Partial<GridOverlayOptions>) => {
 		_gridOptions = { ..._gridOptions, ...options };
+	},
+
+	/**
+	 * Get the current grid options
+	 * @returns The current grid options
+	 */
+	getGridOptions: () => {
+		return _gridOptions;
 	},
 
 	/**

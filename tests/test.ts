@@ -7,62 +7,92 @@ test.beforeEach(async ({ page }) => {
 	await page.goto('/');
 });
 
-test('toast is rendered and disappears after the default timeout', async ({ page }) => {
-	await page.getByTestId('default-button').click();
-	await expect(page.locator('[data-sonner-toast]')).toHaveCount(0);
-	await expect(page.locator('[data-sonner-toast]')).toHaveCount(0);
+test('grid overlay is not visible by default', async ({ page }) => {
+	// Check that the grid overlay is not visible by default
+	await expect(page.locator('.pointer-events-none.fixed.inset-0')).toHaveCount(0);
 });
 
-test('various toast types are rendered correctly', async ({ page }) => {
-	await page.getByTestId('Success').click();
-	await expect(page.getByText('Event has been created', { exact: true })).toHaveCount(1);
+test('grid overlay toggles visibility when toggle button is clicked', async ({ page }) => {
+	// Click the toggle button in the Hero component
+	await page.getByTestId('toggle-button').click();
 
-	await page.getByTestId('Error').click();
-	await expect(page.getByText('Event has not been created', { exact: true })).toHaveCount(1);
+	// Check that the grid overlay is now visible
+	await expect(page.locator('.pointer-events-none.fixed.inset-0')).toHaveCount(1);
 
-	await page.getByTestId('Action').click();
-	await expect(page.locator('[data-button]')).toHaveCount(1);
+	// Click the toggle button again to hide the grid
+	await page.getByTestId('toggle-button').click();
+
+	// Check that the grid overlay is hidden again
+	await expect(page.locator('.pointer-events-none.fixed.inset-0')).toHaveCount(0);
 });
 
-test('show correct toast content based on promise state', async ({ page }) => {
-	await page.getByTestId('Promise').click();
-	await expect(page.getByText('Loading...')).toHaveCount(1);
-	await expect(page.getByText('Svelte Sonner toast has been added')).toHaveCount(1);
+test('grid overlay shows correct number of columns', async ({ page }) => {
+	// Show the grid overlay
+	await page.getByTestId('toggle-button').click();
+
+	// Wait for the grid to be visible
+	await expect(page.locator('.pointer-events-none.fixed.inset-0')).toHaveCount(1);
+
+	// Check that the grid has the default 12 columns
+	// Using a more specific selector to only count direct children of the grid container
+	const gridContainer = page.locator('.pointer-events-none.fixed.inset-0 .grid');
+	const columnCount = await gridContainer.locator(':scope > .h-full').count();
+	expect(columnCount).toBe(12);
 });
 
-test('render custom component in toast', async ({ page }) => {
-	await page.getByTestId('Custom').click();
-	await expect(page.getByText('A custom toast with default styling')).toHaveCount(1);
+test('grid overlay can be positioned at different locations', async ({ page }) => {
+	// Test different position options
+	const positions = [
+		'top-left',
+		'top-right',
+		'bottom-left',
+		'bottom-right',
+		'top-center',
+		'bottom-center'
+	];
+
+	for (const position of positions) {
+		// Click the position button to change the position
+		await page.getByText(position, { exact: true }).click();
+
+		// Show the grid if it's not already visible
+		if ((await page.locator('.pointer-events-none.fixed.inset-0').count()) === 0) {
+			await page.getByTestId('toggle-button').click();
+		}
+
+		// Verify the grid is visible with the new position
+		await expect(page.locator('.pointer-events-none.fixed.inset-0')).toHaveCount(1);
+	}
 });
 
-test('toast is removed after swiping down', async ({ page }) => {
-	await page.getByTestId('default-button').click();
-	await page.hover('[data-sonner-toast]');
-	await page.mouse.down();
-	await page.mouse.move(0, 800);
-	await page.mouse.up();
-	await expect(page.locator('[data-sonner-toast]')).toHaveCount(0);
+test('grid overlay settings can be changed', async ({ page }) => {
+	// Click the toggle button to show the grid
+	await page.getByTestId('toggle-button').click();
+
+	// Wait for the grid to be visible
+	await expect(page.locator('.pointer-events-none.fixed.inset-0')).toHaveCount(1);
+
+	// Find and click the settings button - using aria-label which is more reliable
+	await page.getByRole('button', { name: 'Grid settings' }).click();
+
+	// Check that settings panel is visible by looking for its header text
+	await expect(page.getByText('Grid Settings')).toBeVisible();
+
+	// Find the mobile view button by its text content - using precise selector
+	const mobileButton = page.getByRole('button', { name: 'Set Mobile View (375px)' });
+	await mobileButton.click();
+
+	// Verify the grid has been updated to mobile settings (4 columns)
+	// Using the same specific selector as the columns test
+	const gridContainer = page.locator('.pointer-events-none.fixed.inset-0 .grid');
+	const columnCount = await gridContainer.locator(':scope > .h-full').count();
+	expect(columnCount).toBe(4);
 });
 
-test('toast is not removed when hovered', async ({ page }) => {
-	await page.getByTestId('default-button').click();
-	await page.hover('[data-sonner-toast]');
-	const timeout = new Promise((resolve) => setTimeout(resolve, 5000));
-	await timeout;
-	await expect(page.locator('[data-sonner-toast]')).toHaveCount(1);
-});
+test('margins are visible in the grid overlay', async ({ page }) => {
+	// Show the grid overlay
+	await page.getByTestId('toggle-button').click();
 
-test('close a toast from inside a custom component', async ({ page }) => {
-	await page.getByTestId('other-Headless').click();
-	await expect(page.getByText('Event Created')).toHaveCount(1);
-	await page.getByTestId('close-button').click();
-	await expect(page.getByText('Event Created')).toHaveCount(0);
-});
-
-test('render custom component with properties in toast of predefined type', async ({ page }) => {
-	await page.getByTestId('other-Custom with properties').click();
-	console.log(await page.locator('[data-sonner-toast]').textContent());
-	await expect(
-		page.locator('[data-sonner-toast]').getByText('This is multiline message')
-	).toHaveCount(1);
+	// Check that margins are visible by default
+	await expect(page.locator('.outer-margin-container')).toHaveCount(1);
 });

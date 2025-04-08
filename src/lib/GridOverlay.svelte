@@ -1,10 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {
-		getGridOptions,
-		getGridVisible,
-		gridOverlay
-	} from './gridState.svelte';
+	import { gridOverlay } from './gridState.svelte';
 	import ToggleButton from './ToggleButton.svelte';
 	import type { GridOverlayOptions, Position } from './types';
 
@@ -34,8 +30,8 @@
 	});
 
 	// Local variables to directly access state
-	let currentOptions = $derived(getGridOptions());
-	let isVisible = $derived(getGridVisible());
+	let currentOptions = $derived(gridOverlay.getGridOptions());
+	let isVisible = $derived(gridOverlay.getGridVisible());
 
 	// Helper function to add units to numeric values (always px)
 	function addUnit(

@@ -1,16 +1,14 @@
 // setupTest.ts
 /* eslint-disable @typescript-eslint/no-empty-function */
-import matchers from '@testing-library/jest-dom/matchers';
-import { expect, vi } from 'vitest';
-import type { Navigation, Page } from '@sveltejs/kit';
-import { readable } from 'svelte/store';
+import { vi } from 'vitest';
+// Fix matchers import for newer version of testing-library/jest-dom
 import * as environment from '$app/environment';
 import * as navigation from '$app/navigation';
 import * as stores from '$app/stores';
+import type { Navigation, Page } from '@sveltejs/kit';
 import { configure } from '@testing-library/dom';
-
-// Add custom jest matchers
-expect.extend(matchers);
+import '@testing-library/jest-dom';
+import { readable } from 'svelte/store';
 
 configure({
 	asyncUtilTimeout: 1500
@@ -32,9 +30,18 @@ vi.mock('$app/navigation', (): typeof navigation => ({
 	goto: () => Promise.resolve(),
 	invalidate: () => Promise.resolve(),
 	invalidateAll: () => Promise.resolve(),
-	preloadData: () => Promise.resolve(),
+	preloadData: () =>
+		Promise.resolve({
+			type: 'loaded',
+			status: 200,
+			data: {}
+		}),
 	preloadCode: () => Promise.resolve(),
-	onNavigate: () => {}
+	onNavigate: () => {
+		return () => {};
+	}, // Return unsubscribe function
+	pushState: () => {},
+	replaceState: () => {}
 }));
 
 // Mock SvelteKit runtime module $app/stores
@@ -50,7 +57,8 @@ vi.mock('$app/stores', (): typeof stores => {
 			status: 200,
 			error: null,
 			data: {},
-			form: undefined
+			form: undefined,
+			state: {} // Add the missing state property required by the Page type
 		});
 		const updated = { subscribe: readable(false).subscribe, check: async () => false };
 

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { cn } from '$lib/internal/helpers';
 	import { DropdownMenu, Select, Slider } from 'bits-ui';
 	import {
 		ArrowCounterClockwise,
@@ -12,11 +11,7 @@
 		GridFour,
 		Info
 	} from 'phosphor-svelte';
-	import {
-		getGridOptions,
-		getGridVisible,
-		gridOverlay
-	} from './gridState.svelte';
+	import { gridOverlay } from './gridState.svelte';
 	import type { GridOverlayOptions, Position } from './types';
 
 	// Component props
@@ -26,11 +21,18 @@
 
 	let { position = 'bottom-right' }: Props = $props();
 
-	// Local state
-	let isVisible: boolean = $derived(getGridVisible());
+	// Local state - Fix for reactive binding
+	let isVisible = $state(false);
+
+	// Update isVisible whenever the component is rendered
+	$effect(() => {
+		isVisible = gridOverlay.getGridVisible();
+	});
+
 	let showSettings = $state(false);
-	let currentOptions: Partial<GridOverlayOptions> =
-		$derived(getGridOptions());
+	let currentOptions: Partial<GridOverlayOptions> = $derived(
+		gridOverlay.getGridOptions()
+	);
 	let activeTab = $state('general'); // 'general' or 'advanced'
 
 	// Options for selects
@@ -366,9 +368,7 @@
 											</span>
 											<Slider.Thumb
 												index={0}
-												class={cn(
-													'border-border-input bg-background hover:border-dark-40 focus-visible:ring-foreground dark:bg-foreground dark:shadow-card block size-[18px] cursor-pointer rounded-full border shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50'
-												)}
+												class="border-border-input bg-background hover:border-dark-40 focus-visible:ring-foreground dark:bg-foreground dark:shadow-card block size-[18px] cursor-pointer rounded-full border shadow-sm transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
 											/>
 										{/snippet}
 									</Slider.Root>

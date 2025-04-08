@@ -9,7 +9,7 @@ export function getOtherCodeSnippet(snippet: string, showMargins: boolean, visib
 }
 
 export const usageSnippet = `<script>
-	import { GridOverlay } from 'svelte-grid-guide'
+	import { GridOverlay } from '@iamjuney/svelte-grid-guide'
 	
 	// Configuration options with default values
 	const options = {

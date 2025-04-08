@@ -5,7 +5,7 @@
 	let copying = $state(0);
 
 	const onCopy = () => {
-		copy('npm install svelte-grid-guide');
+		copy('npm install @iamjuney/svelte-grid-guide');
 		copying++;
 		setTimeout(() => {
 			copying--;
@@ -21,7 +21,7 @@
 		class="relative flex h-10 cursor-copy items-center rounded-md border border-gray-200 bg-gradient-to-t from-gray-100 to-gray-50 px-[62px] py-0 pr-3 pl-3 font-mono text-sm"
 		onclick={onCopy}
 	>
-		npm install svelte-grid-guide{' '}
+		npm install @iamjuney/svelte-grid-guide{' '}
 		<button
 			aria-label="Copy code"
 			class="absolute top-1/2 right-1.5 flex h-[26px] w-[26px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-md border border-gray-200 bg-white text-gray-900"

@@ -14,7 +14,7 @@ A customizable grid overlay system for Svelte applications to help with layout d
 ## Installation
 
 ```bash
-npm install svelte-grid-guide
+npm install @iamjuney/svelte-grid-guide
 # or yarn/pnpm/bun add svelte-grid-guide
 ```
 
@@ -22,7 +22,7 @@ npm install svelte-grid-guide
 
 ```svelte
 <script>
-	import { GridOverlay } from 'svelte-grid-guide';
+	import { GridOverlay } from '@iamjuney/svelte-grid-guide';
 </script>
 
 <GridOverlay />
@@ -34,7 +34,7 @@ npm install svelte-grid-guide
 
 ```svelte
 <script>
-	import { GridOverlay } from 'svelte-grid-guide';
+	import { GridOverlay } from '@iamjuney/svelte-grid-guide';
 
 	const gridOptions = {
 		columns: 12,
