@@ -54,14 +54,24 @@
 		style="z-index: {currentOptions.zIndex || 9990};"
 	>
 		{#if currentOptions.showMargins}
-			<div
-				class="outer-margin-container"
-				style="
-					--max-width: {addUnit(currentOptions.maxWidth, 1200)};
-					--margin-color: {currentOptions.marginColor || '#0000ff'};
-					--opacity: {currentOptions.opacity || 0.2};
-				"
-			></div>
+			<div class="pointer-events-none absolute inset-0 h-full w-full">
+				<div
+					class="absolute inset-y-0 left-0 h-full"
+					style="
+						width: calc((100% - {addUnit(currentOptions.maxWidth, 1200)}) / 2);
+						background-color: {currentOptions.marginColor || '#0000ff'};
+						opacity: {currentOptions.opacity || 0.2};
+					"
+				></div>
+				<div
+					class="absolute inset-y-0 right-0 h-full"
+					style="
+						width: calc((100% - {addUnit(currentOptions.maxWidth, 1200)}) / 2);
+						background-color: {currentOptions.marginColor || '#0000ff'};
+						opacity: {currentOptions.opacity || 0.2};
+					"
+				></div>
+			</div>
 		{/if}
 		<div
 			class="pointer-events-none relative mx-auto grid h-full w-full"
@@ -93,31 +103,4 @@
 </div>
 
 <style>
-	.outer-margin-container {
-		position: absolute;
-		inset: 0;
-		height: 100%;
-		width: 100%;
-		pointer-events: none;
-	}
-
-	.outer-margin-container::before,
-	.outer-margin-container::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		background-color: var(--margin-color, #0000ff);
-		opacity: var(--opacity, 0.2);
-		width: calc((100% - var(--max-width)) / 2);
-		height: 100%;
-	}
-
-	.outer-margin-container::before {
-		left: 0;
-	}
-
-	.outer-margin-container::after {
-		right: 0;
-	}
 </style>

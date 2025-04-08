@@ -72,7 +72,7 @@
 		Svelte Grid Guide
 	</h1>
 	<p class="mx-auto mt-0 mb-3 max-w-md text-center text-lg text-gray-800">
-		A customizable grid overlay system for Svelte applications.
+		A customizable grid overlay system for SvelteKit applications.
 	</p>
 	<div class="mt-2 flex gap-2">
 		<button

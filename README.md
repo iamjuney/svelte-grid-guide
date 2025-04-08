@@ -2,7 +2,7 @@ https://github.com/user-attachments/assets/d0e41510-399f-4937-a94d-151481f66c3c
 
 # svelte-grid-guide
 
-A customizable grid overlay system for Svelte applications to help with layout design and alignment.
+A customizable grid overlay system for SvelteKit applications to help with layout design and alignment.
 
 ## Features
 
@@ -14,8 +14,16 @@ A customizable grid overlay system for Svelte applications to help with layout d
 ## Installation
 
 ```bash
-npm install @iamjuney/svelte-grid-guide
-# or yarn/pnpm/bun add svelte-grid-guide
+bun add @iamjuney/svelte-grid-guide
+```
+
+### Requirements
+
+This package requires Tailwind CSS v4. If you're experiencing style issues, make sure Tailwind CSS is properly set up in your project.
+
+```bash
+# Install Tailwind CSS v4 if not already installed
+bunx sv add tailwindcss
 ```
 
 ## Basic Usage
