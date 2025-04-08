@@ -44,7 +44,6 @@ bun add bits-ui phosphor-svelte
 <!-- src/routes/+layout.svelte -->
 <script>
 	import { GridOverlay } from '@iamjuney/svelte-grid-guide';
-	import '@iamjuney/svelte-grid-guide/dist/index.css';
 </script>
 
 <GridOverlay />
