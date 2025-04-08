@@ -24,6 +24,24 @@ This package requires Tailwind CSS v4. If you're experiencing style issues, make
 ```bash
 # Install Tailwind CSS v4 if not already installed
 bunx sv add tailwindcss
+
+# Install peer dependencies
+bun add bits-ui phosphor-svelte
+```
+
+## Peer Dependencies
+
+This package requires the following peer dependencies:
+
+- `svelte` (^5.0.0-next.1)
+- `tailwindcss` (^4.0.0)
+- `bits-ui` (^1.3.18)
+- `phosphor-svelte` (^3.0.1)
+
+Make sure to install these dependencies in your project:
+
+```bash
+bun add bits-ui phosphor-svelte
 ```
 
 ## Basic Usage
@@ -36,20 +54,6 @@ bunx sv add tailwindcss
 <GridOverlay />
 
 <!-- Your app content here -->
-```
-
-## Styling
-
-The package includes essential styles needed for the grid overlay and UI components to function properly. The library uses Tailwind CSS v4's inline theming for styling, which is included automatically.
-
-If you're using custom themes or experiencing styling issues, you may need to include the following CSS variables in your project's global CSS:
-
-```css
-@theme inline {
-	--animate-accordion-down: accordion-down 0.2s ease-out;
-	--animate-accordion-up: accordion-up 0.2s ease-out;
-	/* Additional animation variables if needed */
-}
 ```
 
 ## Customization
