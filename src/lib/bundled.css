@@ -1,0 +1,597 @@
+/* bundled.css - All styles needed for svelte-grid-guide components */
+
+/* Essential Tailwind classes used by GridOverlay and ToggleButton */
+.pointer-events-none {
+	pointer-events: none;
+}
+.fixed {
+	position: fixed;
+}
+.absolute {
+	position: absolute;
+}
+.relative {
+	position: relative;
+}
+.inset-0 {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.inset-y-0 {
+	top: 0;
+	bottom: 0;
+}
+.left-0 {
+	left: 0;
+}
+.right-0 {
+	right: 0;
+}
+.h-screen {
+	height: 100vh;
+}
+.h-full {
+	height: 100%;
+}
+.w-screen {
+	width: 100vw;
+}
+.w-full {
+	width: 100%;
+}
+.mx-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+.grid {
+	display: grid;
+}
+.flex {
+	display: flex;
+}
+.flex-1 {
+	flex: 1 1 0%;
+}
+.items-center {
+	align-items: center;
+}
+.justify-center {
+	justify-content: center;
+}
+.justify-between {
+	justify-content: space-between;
+}
+.gap-2 {
+	gap: 0.5rem;
+}
+.gap-1\.5 {
+	gap: 0.375rem;
+}
+.gap-1 {
+	gap: 0.25rem;
+}
+.rounded-full {
+	border-radius: 9999px;
+}
+.rounded {
+	border-radius: 0.25rem;
+}
+.rounded-md {
+	border-radius: 0.375rem;
+}
+.rounded-xl {
+	border-radius: 0.75rem;
+}
+.rounded-sm {
+	border-radius: 0.125rem;
+}
+.border {
+	border-width: 1px;
+}
+.border-b {
+	border-bottom-width: 1px;
+}
+.border-b-2 {
+	border-bottom-width: 2px;
+}
+.border-0 {
+	border-width: 0;
+}
+.border-gray-200 {
+	border-color: rgb(229 231 235);
+}
+.border-gray-300 {
+	border-color: rgb(209 213 219);
+}
+.border-transparent {
+	border-color: transparent;
+}
+.border-blue-600 {
+	border-color: rgb(37 99 235);
+}
+.bg-gray-800 {
+	background-color: rgb(31 41 55);
+}
+.bg-gray-700 {
+	background-color: rgb(55 65 81);
+}
+.bg-blue-600 {
+	background-color: rgb(37 99 235);
+}
+.bg-blue-700 {
+	background-color: rgb(29 78 216);
+}
+.bg-white {
+	background-color: rgb(255 255 255);
+}
+.bg-gray-50 {
+	background-color: rgb(249 250 251);
+}
+.bg-gray-100 {
+	background-color: rgb(243 244 246);
+}
+.bg-transparent {
+	background-color: transparent;
+}
+.bg-red-600 {
+	background-color: rgb(220 38 38);
+}
+.bg-red-700 {
+	background-color: rgb(185 28 28);
+}
+.text-white {
+	color: rgb(255 255 255);
+}
+.text-gray-800 {
+	color: rgb(31 41 55);
+}
+.text-base {
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+.text-sm {
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+}
+.text-xs {
+	font-size: 0.75rem;
+	line-height: 1rem;
+}
+.text-gray-700 {
+	color: rgb(55 65 81);
+}
+.text-gray-500 {
+	color: rgb(107 114 128);
+}
+.text-blue-600 {
+	color: rgb(37 99 235);
+}
+.text-gray-400 {
+	color: rgb(156 163 175);
+}
+.text-gray-600 {
+	color: rgb(75 85 99);
+}
+.text-left {
+	text-align: left;
+}
+.font-semibold {
+	font-weight: 600;
+}
+.font-medium {
+	font-weight: 500;
+}
+.font-sans {
+	font-family:
+		ui-sans-serif,
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		'Helvetica Neue',
+		Arial,
+		'Noto Sans',
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji',
+		'Segoe UI Symbol',
+		'Noto Color Emoji';
+}
+.shadow-md {
+	box-shadow:
+		0 4px 6px -1px rgb(0 0 0 / 0.1),
+		0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.shadow-lg {
+	box-shadow:
+		0 10px 15px -3px rgb(0 0 0 / 0.1),
+		0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+.shadow-sm {
+	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+.overflow-hidden {
+	overflow: hidden;
+}
+.m-0 {
+	margin: 0;
+}
+.mb-3 {
+	margin-bottom: 0.75rem;
+}
+.ml-auto {
+	margin-left: auto;
+}
+.ml-2 {
+	margin-left: 0.5rem;
+}
+.mt-4 {
+	margin-top: 1rem;
+}
+.mt-2 {
+	margin-top: 0.5rem;
+}
+.p-3 {
+	padding: 0.75rem;
+}
+.p-4 {
+	padding: 1rem;
+}
+.p-1 {
+	padding: 0.25rem;
+}
+.p-0\.5 {
+	padding: 0.125rem;
+}
+.px-3 {
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
+}
+.py-2 {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+.px-2 {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+.py-1\.5 {
+	padding-top: 0.375rem;
+	padding-bottom: 0.375rem;
+}
+.py-1 {
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+}
+.transition-colors {
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+.transition-all {
+	transition-property: all;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+.duration-200 {
+	transition-duration: 200ms;
+}
+.cursor-pointer {
+	cursor: pointer;
+}
+.select-none {
+	user-select: none;
+}
+.size-18 {
+	width: 18px;
+	height: 18px;
+}
+.size-16 {
+	width: 16px;
+	height: 16px;
+}
+.size-4 {
+	width: 1rem;
+	height: 1rem;
+}
+.size-3 {
+	width: 0.75rem;
+	height: 0.75rem;
+}
+.size-14 {
+	width: 14px;
+	height: 14px;
+}
+.h-8 {
+	height: 2rem;
+}
+.w-\[280px\] {
+	width: 280px;
+}
+.w-\[120px\] {
+	width: 120px;
+}
+.h-6 {
+	height: 1.5rem;
+}
+.w-6 {
+	width: 1.5rem;
+}
+.h-5 {
+	height: 1.25rem;
+}
+.w-5 {
+	width: 1.25rem;
+}
+.h-input {
+	height: 2.25rem;
+}
+.max-h-60 {
+	max-height: 15rem;
+}
+.inline-flex {
+	display: inline-flex;
+}
+.h-0 {
+	height: 0;
+}
+.w-0 {
+	width: 0;
+}
+.opacity-0 {
+	opacity: 0;
+}
+.opacity-50 {
+	opacity: 0.5;
+}
+.hover\:bg-gray-700:hover {
+	background-color: rgb(55 65 81);
+}
+.hover\:bg-blue-700:hover {
+	background-color: rgb(29 78 216);
+}
+.hover\:bg-red-700:hover {
+	background-color: rgb(185 28 28);
+}
+.hover\:text-gray-600:hover {
+	color: rgb(75 85 99);
+}
+.peer-checked\:border-blue-600:checked + * {
+	border-color: rgb(37 99 235);
+}
+.peer-checked\:bg-blue-600:checked + * {
+	background-color: rgb(37 99 235);
+}
+.peer-checked\:after\:block:checked + *::after {
+	display: block;
+}
+.z-\[10000\] {
+	z-index: 10000;
+}
+.z-\[9999\] {
+	z-index: 9999;
+}
+.z-50 {
+	z-index: 50;
+}
+.pointer-events-none {
+	pointer-events: none;
+}
+
+/* Additional classes for specific UI components used in the ToggleButton */
+.after\:absolute::after {
+	content: '';
+	position: absolute;
+}
+.after\:top-\[2px\]::after {
+	top: 2px;
+}
+.after\:left-\[6px\]::after {
+	left: 6px;
+}
+.after\:hidden::after {
+	display: none;
+}
+.after\:h-\[9px\]::after {
+	height: 9px;
+}
+.after\:w-\[4px\]::after {
+	width: 4px;
+}
+.after\:rotate-45::after {
+	transform: rotate(45deg);
+}
+.after\:border-\[0_2px_2px_0\]::after {
+	border-width: 0 2px 2px 0;
+}
+.after\:border-white::after {
+	border-color: white;
+}
+.after\:content-\[\'\'\]::after {
+	content: '';
+}
+.data-highlighted\:bg-gray-100[data-highlighted] {
+	background-color: rgb(243 244 246);
+}
+
+/* Component-specific styles for the slider used in ToggleButton */
+.bg-dark-10 {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.border-border-input {
+	border-color: hsl(var(--input));
+}
+.bg-background {
+	background-color: hsl(var(--background));
+}
+.hover\:border-dark-40:hover {
+	border-color: rgba(0, 0, 0, 0.4);
+}
+.focus-visible\:ring-foreground:focus-visible {
+	--tw-ring-color: hsl(var(--foreground));
+}
+.dark\:bg-foreground.dark {
+	background-color: hsl(var(--foreground));
+}
+.dark\:shadow-card.dark {
+	--tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	--tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+	box-shadow:
+		var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.focus-visible\:ring-2:focus-visible {
+	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width)
+		var(--tw-ring-offset-color);
+	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width))
+		var(--tw-ring-color);
+	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+.focus-visible\:ring-offset-2:focus-visible {
+	--tw-ring-offset-width: 2px;
+}
+.focus-visible\:outline-hidden:focus-visible {
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+}
+.active\:scale-\[0\.98\]:active {
+	transform: scale(0.98);
+}
+.disabled\:pointer-events-none:disabled {
+	pointer-events: none;
+}
+.disabled\:opacity-50:disabled {
+	opacity: 0.5;
+}
+
+/* Essential animation variables and keyframes from your styles.css */
+@keyframes accordion-down {
+	from {
+		height: 0;
+	}
+	to {
+		height: var(--bits-accordion-content-height);
+	}
+}
+
+@keyframes accordion-up {
+	from {
+		height: var(--bits-accordion-content-height);
+	}
+	to {
+		height: 0;
+	}
+}
+
+@keyframes caret-blink {
+	0%,
+	70%,
+	100% {
+		opacity: 1;
+	}
+	20%,
+	50% {
+		opacity: 0;
+	}
+}
+
+@keyframes enter-from-right {
+	from {
+		opacity: 0;
+		transform: translateX(200px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes enter-from-left {
+	from {
+		opacity: 0;
+		transform: translateX(-200px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes exit-to-right {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(200px);
+	}
+}
+
+@keyframes exit-to-left {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(-200px);
+	}
+}
+
+@keyframes scale-in {
+	from {
+		opacity: 0;
+		transform: rotateX(-10deg) scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: rotateX(0deg) scale(1);
+	}
+}
+
+@keyframes scale-out {
+	from {
+		opacity: 1;
+		transform: rotateX(0deg) scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: rotateX(-10deg) scale(0.95);
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fade-out {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+/* Animation variables needed for components */
+:root {
+	--animate-accordion-down: accordion-down 0.2s ease-out;
+	--animate-accordion-up: accordion-up 0.2s ease-out;
+	--animate-caret-blink: caret-blink 1s ease-out infinite;
+	--animate-scale-in: scale-in 0.2s ease;
+	--animate-scale-out: scale-out 0.15s ease;
+	--animate-fade-in: fade-in 0.2s ease;
+	--animate-fade-out: fade-out 0.15s ease;
+	--animate-enter-from-left: enter-from-left 0.2s ease;
+	--animate-enter-from-right: enter-from-right 0.2s ease;
+	--animate-exit-to-left: exit-to-left 0.2s ease;
+	--animate-exit-to-right: exit-to-right 0.2s ease;
+}

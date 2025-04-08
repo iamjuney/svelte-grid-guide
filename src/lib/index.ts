@@ -1,4 +1,6 @@
-// Import the essential styles needed for components
+// Import the bundled styles for components
+import './bundled.css';
+// Import the original styles for theme variables
 import './styles.css';
 
 import GridOverlay from './GridOverlay.svelte';

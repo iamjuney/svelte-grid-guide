@@ -21,20 +21,14 @@ bun add @iamjuney/svelte-grid-guide
 
 This package requires Tailwind CSS v4. If you're experiencing style issues, make sure Tailwind CSS is properly set up in your project.
 
-```bash
+````bash
 # Install Tailwind CSS v4 if not already installed
 bunx sv add tailwindcss
-
-# Install peer dependencies
-bun add bits-ui phosphor-svelte
-```
 
 ## Peer Dependencies
 
 This package requires the following peer dependencies:
 
-- `svelte` (^5.0.0-next.1)
-- `tailwindcss` (^4.0.0)
 - `bits-ui` (^1.3.18)
 - `phosphor-svelte` (^3.0.1)
 
@@ -42,13 +36,15 @@ Make sure to install these dependencies in your project:
 
 ```bash
 bun add bits-ui phosphor-svelte
-```
+````
 
 ## Basic Usage
 
 ```svelte
+<!-- src/routes/+layout.svelte -->
 <script>
 	import { GridOverlay } from '@iamjuney/svelte-grid-guide';
+	import '@iamjuney/svelte-grid-guide/dist/index.css';
 </script>
 
 <GridOverlay />
@@ -97,7 +93,7 @@ Position the controls with: `top-left`, `top-right`, `bottom-left`, `bottom-righ
 
 ```svelte
 <script>
-	import { GridOverlay, gridOverlay } from 'svelte-grid-guide';
+	import { GridOverlay, gridOverlay } from '@iamjuney/svelte-grid-guide';
 
 	// Available methods:
 	// gridOverlay.show()
@@ -111,6 +107,16 @@ Position the controls with: `top-left`, `top-right`, `bottom-left`, `bottom-righ
 <GridOverlay />
 <button onclick={() => gridOverlay.toggle()}>Toggle Grid</button>
 ```
+
+## Troubleshooting
+
+### Missing styles
+
+If you're experiencing styling issues:
+
+1. Make sure you've imported the package's CSS file as shown in the "Importing Styles" section
+2. Verify that you have the required peer dependencies installed (tailwindcss, bits-ui, phosphor-svelte)
+3. For SvelteKit projects, ensure the CSS is imported in a file that loads before your components
 
 ## License
 
