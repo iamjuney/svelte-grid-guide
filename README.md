@@ -38,6 +38,20 @@ bunx sv add tailwindcss
 <!-- Your app content here -->
 ```
 
+## Styling
+
+The package includes essential styles needed for the grid overlay and UI components to function properly. The library uses Tailwind CSS v4's inline theming for styling, which is included automatically.
+
+If you're using custom themes or experiencing styling issues, you may need to include the following CSS variables in your project's global CSS:
+
+```css
+@theme inline {
+	--animate-accordion-down: accordion-down 0.2s ease-out;
+	--animate-accordion-up: accordion-up 0.2s ease-out;
+	/* Additional animation variables if needed */
+}
+```
+
 ## Customization
 
 ```svelte
