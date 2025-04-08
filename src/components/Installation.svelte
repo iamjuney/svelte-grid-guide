@@ -4,6 +4,7 @@
 
 	let copying = $state(0);
 	let copyingTailwind = $state(0);
+	let copyingPeerDeps = $state(0);
 
 	const onCopy = () => {
 		copy('npm install @iamjuney/svelte-grid-guide');
@@ -59,6 +60,34 @@
 			class="absolute top-1/2 right-1.5 flex h-[26px] w-[26px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-md border border-gray-200 bg-white text-gray-900"
 		>
 			{#if copyingTailwind}
+				<Check size={14} weight="bold" />
+			{:else}
+				<ClipboardText size={14} weight="bold" />
+			{/if}
+		</button>
+	</code>
+
+	<p class="mt-4 mb-2 text-sm text-gray-600">
+		Install required peer dependencies:
+	</p>
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+	<code
+		class="relative flex h-10 cursor-copy items-center rounded-md border border-gray-200 bg-gradient-to-t from-gray-100 to-gray-50 px-[62px] py-0 pr-3 pl-3 font-mono text-sm"
+		onclick={() => {
+			copy('bun add bits-ui phosphor-svelte');
+			copyingPeerDeps++;
+			setTimeout(() => {
+				copyingPeerDeps--;
+			}, 2000);
+		}}
+	>
+		bun add bits-ui phosphor-svelte{' '}
+		<button
+			aria-label="Copy code"
+			class="absolute top-1/2 right-1.5 flex h-[26px] w-[26px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-md border border-gray-200 bg-white text-gray-900"
+		>
+			{#if copyingPeerDeps}
 				<Check size={14} weight="bold" />
 			{:else}
 				<ClipboardText size={14} weight="bold" />
